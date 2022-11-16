@@ -13,40 +13,47 @@ bureau_vote b_v;
 
 int id,x;
 
-bureau_vote b_v1={0000,"tunis",1111,"esprit",55,10,20};
-bureau_vote b_v2={9999,"ghazela",3333,"fst",12,25,30};
+bureau_vote b_v1={0000,"tunis","esprit",55,10,20};
+bureau_vote b_v2={9999,"ghazela","fst",12,25,30};
 bureau_vote b_v3;
 
-
-x=ajoute("bureau.txt",b_v1);
-
-if (x==1)
-	printf("\n ajout de bureau avec succes");
-	else printf("\n echec ajout");
-
-printf("%d %s %d %s %d %d %d \n",b_v.ID_bureau_vote,b_v.municipalite,b_v.ID_agent,b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.cap_observateur);
-
-
-
-	x=modifier( id, b_v2,"bureau.txt");
+/**/
+	x=ajoute("bureau.txt",b_v1);
 
 if (x==1)
-	printf("\n modif de bureau avec succes");
-	else printf("\n echec modif");
+	printf("\n ajout de bureau avec succes \n");
+	else printf("\n echec ajout \n");
 
-
-	x=supprimer(id,  "bureau.txt");
+/**/
+	x=ajoute("bureau.txt",b_v2);
 
 if (x==1)
-	printf("\n supp de bureau avec succes");
-	else printf("\n echec supp");
+	printf("\n ajout de bureau avec succes \n");
+	else printf("\n echec ajout \n");
 
-
- 	b_v1=chercher("bureau.txt",0000 );
+/**/
+ 	b_v1=chercher("bureau.txt",0 );
 
 if(b_v1.ID_bureau_vote==-1)
-	printf("Observateur de id=%d n'existe pas",id);
- 	else printf("Observateur de id=%d existe :\n",id);
+	printf("\n observateur de id = %d n'existe pas \n",id);
+ 	else printf("\n observateur de id = %d existe \n",id);
+
+/**/
+	x=modifier(0, b_v2,"bureau.txt");
+
+if (x==1)
+	printf("\n modif de bureau avec succes \n");
+	else printf("\n echec modif \n");
+
+
+/**/
+	x=supprimer(9999,"bureau.txt");
+
+if (x==1)
+	printf("\n supp de bureau avec succes \n");
+	else printf("\n echec supp \n");
+
+/**/	
 
   return 0;
 }
