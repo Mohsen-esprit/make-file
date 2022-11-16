@@ -46,7 +46,7 @@ while(fscanf(f,"%i %i %i %i %i %i %i \n",&v.id_election,&v.id_vote,&v.id_liste,&
 	vb++;
 	
 	}
-vb=(vb/n)*100;
+vb=(vb/(n+vb))*100;
 	}
 fclose(f);
 return vb;
