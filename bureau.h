@@ -1,7 +1,7 @@
 #ifndef BUREAU_H_INCLUDED
-#define BUREAU_H_INCLUDED
+#define BUREAU_H_INCLUDED	
 #include<stdio.h>
-#include <string.h>
+#include <string.h>	
 
 
 typedef struct bureau_vote{
@@ -13,19 +13,37 @@ typedef struct bureau_vote{
    	int observateur;
 }bureau_vote;
 
-typedef struct vote{
-	int id_election;
-	int id_vote;
-	int id_liste;
-	int vote_blanc;
-	Date date_v;
-}vote;
-
-typedef struct Date{
+typedef struct date{
 	int jour;
 	int mois;
 	int anne;
-}Date;
+}date;
+
+typedef struct {
+	int id ;
+	char nom[20];
+	char prenom[20];
+	char genre[20];
+	char municipalite[20];
+	char nationalite[20];
+	char role[20];
+	char bureau_vote[20];
+	int vote;
+	date date_naissance;
+}utilisateur;
+
+	typedef struct {
+	int id ;
+	char nom[20];
+	char prenom[20];
+	char nationalite[20];
+	char profession[20];
+	char genre[20];
+	date date_naissance;	
+}observateur;
+
+
+
 
 
 
@@ -35,12 +53,11 @@ int supprimer(int ID_bureau_vote, char * );
 
 int modifier(int id, bureau_vote nouv, char * );
 
-bureau_vote chercher(char * filename, int id);
+bureau_vote chercher(char *, int id);
 
 void taux (char *,float *tn,float *et);
 
-int nbe (char *,int *id);
-
 float TVB (char *) ;
+
 
 #endif 

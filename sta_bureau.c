@@ -1,6 +1,9 @@
 #include "bureau.h"
 
 
+
+
+
 void taux (char *filename,float *tn,float *et){
 int n =0;
 bureau_vote b_v;
@@ -28,14 +31,16 @@ while(fscanf(f,"%d %s %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v
 }/*fel main utilisation bel &*/
 
 
+
+
 float TVB (char * filename) {
 
 	int n=0;
 	float vb=0;
 
-	vote v;
+	vote v;	
 
-	FILE * f=fopen("liste_electorale.txt", "r");
+	FILE * f=fopen(filename, "r");
 
 if (f!=NULL){
 while(fscanf(f,"%i %i %i %i %i %i %i \n",&v.id_election,&v.id_vote,&v.id_liste,&v.vote_blanc,&v.date_v.jour,&v.date_v.mois,&v.date_v.anne)!=EOF){

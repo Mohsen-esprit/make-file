@@ -1,0 +1,6 @@
+0000	a	b	tunis	prof	homme	12	06	1999
+0001	c	d	tunis	avocat	homme	25	09	1995
+0002	e	f	france	ing	femme	23	10	1990
+0003	i	j	algerie	medecin	femme	2	12	1985
+0004	k	l	tunis	prof	homme	15	8	1999
+0005	m	n	tunis	etudiant	femme	30	9	1955

@@ -1,0 +1,7 @@
+0000	a	b	homme	tunis	tunis	obs	tunis	0	20	08	1999
+0001	c	d	femme	benzart	tunis	agent	tunis	1	19	09	1990	
+0002	e	f	homme	tunis	tunis	agent	ras_jbal	1	12	04	1995
+0003	g	h	homme	nabeul	tunis	obs	ben_arous	1	13	07	1960
+0004	i	j	femme	hammamet	algerie	obs	zahra	-1	27	12	1985	
+0005	k	m	femme	sousse	france	obs	rades	-1	25	10	1999
+0006	l	n	femme	sfax	tunis	obs	manar	0	2	01	1945
