@@ -7,7 +7,7 @@ int ajoute( char * filename,bureau_vote b_v )
     FILE * f=fopen("bureau.txt", "a");
     if	(f!=NULL)
     {
-        fprintf(f,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.observateur);
+        fprintf(f,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.nb_observateur);
         fclose(f);
         return 1;
     }
@@ -26,13 +26,13 @@ int modifier(int id, bureau_vote nouv, char * filename)
 return 0;
 else
     {
-while	(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.observateur)!=EOF)
+while	(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.nb_observateur)!=EOF)
 {
 if(b_v.ID_bureau_vote!=id)
-        fprintf(f2,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.observateur);
+        fprintf(f2,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.nb_observateur);
 else
 
-  fprintf(f2,"%d %s  %s %d %d %d \n",nouv.ID_bureau_vote, nouv.municipalite, nouv.ecole,nouv.num_salle,nouv.cap_bureau_vote,nouv.observateur);
+  fprintf(f2,"%d %s  %s %d %d %d \n",nouv.ID_bureau_vote, nouv.municipalite, nouv.ecole,nouv.num_salle,nouv.cap_bureau_vote,nouv.nb_observateur);
 
 }
         fclose(f);
@@ -55,10 +55,10 @@ int supprimer(int id, char * filename)
 return 0;
 else
     {
-while	(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.observateur)!=EOF)
+while	(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.nb_observateur)!=EOF)
 {
 if	(b_v.ID_bureau_vote!=id)
-        fprintf(f2,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.observateur);
+        fprintf(f2,"%d %s  %s %d %d %d \n",b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,b_v.num_salle,b_v.cap_bureau_vote,b_v.nb_observateur);
 
 }
         fclose(f);
@@ -77,7 +77,7 @@ bureau_vote chercher(char * filename, int id){
     FILE * f=fopen("bureau.txt", "r");
     if(f!=NULL)
     {
-while(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.observateur)!=EOF)
+while(fscanf(f,"%d %s  %s %d %d %d \n",&b_v.ID_bureau_vote, b_v.municipalite, b_v.ecole,&b_v.num_salle,&b_v.cap_bureau_vote,&b_v.nb_observateur)!=EOF)
         {
             if(b_v.ID_bureau_vote== id)
                { tr=1;}
@@ -131,24 +131,36 @@ while(fscanf(f,"%d %s %s %s %s %s %d %d %d \n",&ob.id,ob.nom,ob.prenom,ob.nation
 
 float TVB (char * filename) {
 
-	int 	n=0;
-	float 	vb=0;
-	float	taux_vb;
+	int  n=0;
+	float  vb=0;
+	float taux_vb;
 
-	utilisateur	u;	
+	utilisateur u;	
 
-	FILE * f=fopen("utilisateur.txt", "r");
+	FILE * f=fopen(filename, "r");
 
 if (f!=NULL){
-while(fscanf(f,"%i %s %s %s %s %s %s %s %i %i %i %i \n",&u.id,u.nom,u.prenom,u.genre,u.municipalite,u.nationalite,u.role,u.bureau_vote,&u.vote,&u.date_naissance.jour,&u.date_naissance.mois,&u.date_naissance.anne)!=EOF){
+while(fscanf(f,"%d %s %s %s %s %s %s %s %d %d %d %d \n",&u.id,u.nom,u.prenom,u.genre,u.municipalite,u.nationalite,u.role,u.bureau_vote,&u.vote,&u.date_naissance.jour,&u.date_naissance.mois,&u.date_naissance.anne)!= EOF){
+	
 	n=n+1;
+	
 	if(u.vote==0)
-	vb=vb+1;
+	 vb+=1;
+		
+	
+	
+
 	}
-taux_vb=(vb/n)*100;
-	}
-fclose(f);
-return taux_vb;
+	
+	taux_vb=(vb/n)*100;
+	
+	fclose(f);
+	return taux_vb;}
+else
+	return 0 ;  
+
+	
+	
 }
 
 

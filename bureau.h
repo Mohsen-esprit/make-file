@@ -10,7 +10,7 @@ typedef struct bureau_vote{
    	char ecole[30];
    	int num_salle;
    	int cap_bureau_vote;
-   	int observateur;
+   	int nb_observateur;
 }bureau_vote;
 
 typedef struct date{

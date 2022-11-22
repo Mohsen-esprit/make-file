@@ -13,7 +13,7 @@ int main () {
 bureau_vote b_v;
 
 int id,x;
-float y,tn,et;
+float y=0,tn,et;
 
 bureau_vote b_v1={0000,"tunis","esprit",55,10,20};
 bureau_vote b_v2={9999,"ghazela","fst",12,25,30};
@@ -56,13 +56,13 @@ if (x==1)
 	else printf("\n echec supp \n");
 
 /**/
-	taux("bureau.txt",&tn,&et);
-		printf("\n le taux de tunisien est: %.2f%% \n le taux de etranger est: %.2f %% \n",tn,et);
+	taux("observateur.txt",&tn,&et);
+		printf("\n le taux de tunisien est: %.2f%% \n \n le taux de etranger est: %.2f %% \n",tn,et);
 	
 /**/		
 	
-	y=TVB("vote.txt");
-		printf("\n le taux de vote blanc est : %.2f \n",y);
+	y=TVB("utilisateur.txt");
+		printf("\n le taux de vote blanc est : %.2f %% \n",y);
 	
 /**/
 	
